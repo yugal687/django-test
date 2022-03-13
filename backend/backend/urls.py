@@ -22,7 +22,7 @@ from item.views import ItemView
 from user.views import UserView
 from django.conf.urls import url
 
-from item import views
+from register import views as register_views
 
 # jwt
 from rest_framework_jwt.views import obtain_jwt_token
@@ -44,6 +44,10 @@ router.register(r'users', UserView, 'user')
 urlpatterns = [
     # admin
     path('admin/', admin.site.urls),
+
+    # register
+    path('register/', register_views.register, name='register'),
+
     # apis
     path('api/', include(router.urls)),
     # token jwt
@@ -52,11 +56,15 @@ urlpatterns = [
     # item
     path('item/', include('item.urls')),
 
+    # todo
+    path('todo/', include('todo.urls')),
+
+
     # path('signup/', item_views.signup, name='signup'),
 
     # users
-    path('', item_views.index),
-    path('signup/', item_views.hello),
+    path('', item_views.home),
+    # path('signup/', item_views.hello),
 
 
     path('user/', include('user.urls')),

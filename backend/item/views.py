@@ -3,15 +3,14 @@ from item.serializers import ItemSerializer
 from rest_framework import viewsets      
 from item.models import Item     
 
-from rest_framework.generics import ListAPIView
-from rest_framework.generics import CreateAPIView
-from rest_framework.generics import DestroyAPIView
-from rest_framework.generics import UpdateAPIView
+# from rest_framework.generics import ListAPIView
+# from rest_framework.generics import CreateAPIView
+# from rest_framework.generics import DestroyAPIView
+# from rest_framework.generics import UpdateAPIView
 
 
 # test
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+
 # from django.shortcuts import render, redirect
 # #users
 # from django.http import HttpResponseRedirect
@@ -23,31 +22,18 @@ from django.contrib.auth.forms import UserCreationForm
 # from .serializers import UserSerializer, UserSerializerWithToken
 
 
-
 class ItemView(viewsets.ModelViewSet):  
     serializer_class = ItemSerializer   
     queryset = Item.objects.all() 
 
 
-
 # test
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', { "name": 'yugal'})
 
-def hello(request):
-    # if request.method == 'POST':
-    #     form = UserCreationForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         username = form.cleaned_data.get('username')
-    #         raw_password = form.cleaned_data.get('password1')
-    #         user = authenticate(username=username, password=raw_password)
-    #         login(request, user)
-    #         return redirect('home')
-    # else:
-    #     form = UserCreationForm()
-    return render(request, 'hello.html')
+def home(request):
+    return render(request, 'home.html')
 
 # class ListItemAPIView(ListAPIView):
 #     """This endpoint list all of the available todos from the database"""
