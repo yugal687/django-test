@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'item',
     'user',
     'register',
+    'crispy_forms',
 ]
 
 
@@ -148,6 +149,9 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
+
+# forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # for posting images
 MEDIA_URL = '/images/'

@@ -50,6 +50,7 @@ urlpatterns = [
 
     # apis
     path('api/', include(router.urls)),
+
     # token jwt
     path('token-auth/', obtain_jwt_token),
 
@@ -59,15 +60,14 @@ urlpatterns = [
     # todo
     path('todo/', include('todo.urls')),
 
-
-    # path('signup/', item_views.signup, name='signup'),
+    
+    path('', item_views.home),
+    
 
     # users
-    path('', item_views.home),
-    # path('signup/', item_views.hello),
-
-
     path('user/', include('user.urls')),
+
+    path('', include('django.contrib.auth.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
