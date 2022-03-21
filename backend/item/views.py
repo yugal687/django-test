@@ -1,6 +1,9 @@
+from urllib import request
 from django.shortcuts import render, redirect
 from item.serializers import ItemSerializer 
-from rest_framework import viewsets      
+from rest_framework import viewsets
+from rest_framework.response import Response 
+from rest_framework.views import APIView     
 from item.models import Item     
 
 # from rest_framework.generics import ListAPIView
@@ -23,8 +26,10 @@ from item.models import Item
 
 
 class ItemView(viewsets.ModelViewSet):  
-    serializer_class = ItemSerializer   
-    queryset = Item.objects.all() 
+    serializer_class = ItemSerializer 
+    queryset = Item.objects.all()
+
+    # return Response(serializer_class.data)
 
 
 # test
@@ -55,6 +60,9 @@ def home(request):
 #     queryset = Item.objects.all()
 #     serializer_class = ItemSerializer
 
+
+
+
 # from rest_framework.views import APIView
 # from rest_framework.parsers import MultiPartParser, FormParser
 # from rest_framework.response import Response
@@ -78,6 +86,9 @@ def home(request):
 #         else:
 #             print('error', items_serializer.errors)
 #             return Response(items_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 
 
 #users
