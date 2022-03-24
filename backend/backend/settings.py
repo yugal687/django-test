@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'item',
     'user',
     'register',
-    'crispy_forms',
+    'crispy_forms'
 ]
 
 
@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': (

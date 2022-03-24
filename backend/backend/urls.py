@@ -20,9 +20,12 @@ from rest_framework import routers
 from todo.views import TodoView
 from item.views import ItemView
 from user.views import UserView
+from register.views import RegisterView
 from django.conf.urls import url
 
 from register import views as register_views
+from register import RegisterAPI
+
 
 # jwt
 from rest_framework_jwt.views import obtain_jwt_token
@@ -37,6 +40,8 @@ router = routers.DefaultRouter()
 router.register(r'todos', TodoView, 'todo')
 router.register(r'items', ItemView, 'item')
 router.register(r'users', UserView, 'user')
+router.register(r'register', RegisterView, 'register')
+
 
 
 # router = routers.DefaultRouter()
@@ -47,6 +52,7 @@ urlpatterns = [
 
     # register
     path('register/', register_views.register, name='register'),
+    
 
     # apis
     path('api/', include(router.urls)),
@@ -63,7 +69,6 @@ urlpatterns = [
     
     path('', item_views.home),
     
-
     # users
     path('user/', include('user.urls')),
 
