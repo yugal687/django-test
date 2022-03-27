@@ -3,13 +3,18 @@ from .models import Item
 # from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
 
+
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ('__all__')
 
+    # class Meta:
+    #     model = Category
+    #     fields = ('__all__')
 
-#users
+
+# users
 # class UserSerializer(serializers.ModelSerializer):
 
 #     class Meta:

@@ -21,10 +21,10 @@ from todo.views import TodoView
 from item.views import ItemView
 from user.views import UserView
 from register.views import RegisterView
-from django.conf.urls import url
+# from django.conf.urls import url
 
 from register import views as register_views
-from register import RegisterAPI
+# from register import RegisterAPI
 
 
 # jwt
