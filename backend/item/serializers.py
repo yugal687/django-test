@@ -1,10 +1,13 @@
 from rest_framework import serializers
-from .models import Item
+from .models import Category, Item
 # from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
 
 
 class ItemSerializer(serializers.ModelSerializer):
+    category = serializers.CharField(
+        source="category.name", read_only=True)
+
     class Meta:
         model = Item
         fields = ('__all__')
@@ -13,6 +16,11 @@ class ItemSerializer(serializers.ModelSerializer):
     #     model = Category
     #     fields = ('__all__')
 
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('__all__')
 
 # users
 # class UserSerializer(serializers.ModelSerializer):

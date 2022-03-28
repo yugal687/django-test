@@ -1,9 +1,13 @@
-from datetime import datetime
+
 from django.db import models
 
 class Category(models.Model):
-    id = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
+
+    @staticmethod
+    def categories():
+        return Category.objects.all()
   
     def __str__(self):
         return self.name
@@ -13,10 +17,10 @@ class Category(models.Model):
 class Item(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.IntegerField()
     description = models.TextField()
-    short_description = models.TextField(max_length=140, default='SOME STRING')
+    short_description = models.TextField(max_length=140, default='Description')
     image = models.ImageField(null=True, blank=True, upload_to='static/images')
 
     def _str_(self):

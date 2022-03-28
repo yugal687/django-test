@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Home 
+Home
 {% endblock %}
 
 {% block content %}
 <h1>Home Page</h1>
 {% if user.is_authenticated %}
-    {{ user.username }}
+{{ user.username }}
 {% else %}
-    <p>not Logged in</p>
+<p>not Logged in</p>
 {% endif %}
+
+{% for item in items.category.all %}
+
+<li>{{ item.name }}</li>
+
+{%endfor%}
 
 {% endblock %}
