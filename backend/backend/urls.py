@@ -54,7 +54,6 @@ urlpatterns = [
     # register
     path('register/', register_views.register, name='register'),
     
-
     # apis
     path('api/', include(router.urls)),
 
@@ -67,7 +66,6 @@ urlpatterns = [
     # todo
     path('todo/', include('todo.urls')),
 
-    
     path('', item_views.home),
     
     # users
