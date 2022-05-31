@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from todo.views import TodoView
-from item.views import ItemView, CategoryView
+from item.views import ItemView, CategoryView, ItemCategoryView
 from user.views import UserView
 from register.views import RegisterView
 # from django.conf.urls import url
@@ -39,6 +39,7 @@ from item import views as item_views
 router = routers.DefaultRouter()
 router.register(r'todos', TodoView, 'todo')
 router.register(r'items', ItemView, 'item')
+router.register(r'item-categories', ItemCategoryView, 'item-category')
 router.register(r'categories', CategoryView, 'category')
 router.register(r'users', UserView, 'user')
 router.register(r'register', RegisterView, 'register')

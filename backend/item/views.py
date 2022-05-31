@@ -10,6 +10,10 @@ class ItemView(viewsets.ModelViewSet):
 
     # return Response(serializer_class.data)
 
+class ItemCategoryView(viewsets.ModelViewSet):
+    serializer_class = ItemSerializer
+    queryset = Item.objects.all()
+
 
 class CategoryView(viewsets.ModelViewSet):
     serializer_class = CategorySerializer

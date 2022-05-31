@@ -12,7 +12,6 @@ class CategorySerializer(serializers.ModelSerializer):
 class ItemSerializer(serializers.ModelSerializer):
     category = serializers.CharField(source="category.name", read_only=True)
     # category=CategorySerializer()
-
     class Meta:
         model = Item
         fields = ('__all__')
