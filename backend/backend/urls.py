@@ -21,6 +21,7 @@ from todo.views import TodoView
 from item.views import ItemView, CategoryView, ItemCategoryView
 from user.views import UserView
 from register.views import RegisterView
+from cart.views import CartView
 # from django.conf.urls import url
 
 from register import views as register_views
@@ -39,6 +40,7 @@ from item import views as item_views
 router = routers.DefaultRouter()
 router.register(r'todos', TodoView, 'todo')
 router.register(r'items', ItemView, 'item')
+router.register(r'carts', CartView, 'cart')
 router.register(r'item-categories', ItemCategoryView, 'item-category')
 router.register(r'categories', CategoryView, 'category')
 router.register(r'users', UserView, 'user')
