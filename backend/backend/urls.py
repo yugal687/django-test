@@ -53,16 +53,12 @@ router.register(r'register', RegisterView, 'register')
 urlpatterns = [
     # admin
     path('admin/', admin.site.urls),
-
     # register
     path('register/', register_views.register, name='register'),
-    
     # apis
     path('api/', include(router.urls)),
-
     # token jwt
     path('token-auth/', obtain_jwt_token),
-
     # item
     path('item/', include('item.urls')),
 
