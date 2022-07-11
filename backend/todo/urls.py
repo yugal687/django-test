@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from rest_framework import routers
 
@@ -14,4 +14,10 @@ urlpatterns = router.urls
 # urlpatterns += [
 #     path('current_user/', current_user),
 #     path('users/', UserList.as_view())
+# ]
+
+# test
+# urlpatterns = [  
+#     path('', views.todo_list),
+#     path('', include(router.urls)),
 # ]

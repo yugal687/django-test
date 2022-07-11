@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from todo.views import TodoView
+# from todo.views import todo_list
 from item.views import ItemView, CategoryView, ItemCategoryView
 from user.views import UserView
 from register.views import RegisterView
@@ -45,6 +46,7 @@ router.register(r'item-categories', ItemCategoryView, 'item-category')
 router.register(r'categories', CategoryView, 'category')
 router.register(r'users', UserView, 'user')
 router.register(r'register', RegisterView, 'register')
+# router.register(r'token-auth', obtain_jwt_token, basename='token-auth')
 
 
 
@@ -60,10 +62,10 @@ urlpatterns = [
     # token jwt
     path('token-auth/', obtain_jwt_token),
     # item
-    path('item/', include('item.urls')),
+    # path('item/', include('item.urls')),
 
     # todo
-    path('todo/', include('todo.urls')),
+    # path('todo/', include('todo.urls')),
 
     path('', item_views.home),
     
