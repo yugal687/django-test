@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from re import template
+from typing import get_args
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from todo.views import TodoView
+from todo import views as todo_views
 # from todo.views import todo_list
 from item.views import ItemView, CategoryView, ItemCategoryView
 from user.views import UserView
@@ -39,7 +40,7 @@ from item import views as item_views
 
 
 router = routers.DefaultRouter()
-router.register(r'todos', TodoView, 'todo')
+# router.register(r'todos', todo_views, 'todo')
 router.register(r'items', ItemView, 'item')
 router.register(r'carts', CartView, 'cart')
 router.register(r'item-categories', ItemCategoryView, 'item-category')
@@ -55,22 +56,28 @@ router.register(r'register', RegisterView, 'register')
 urlpatterns = [
     # admin
     path('admin/', admin.site.urls),
+    
     # register
     path('register/', register_views.register, name='register'),
+
     # apis
     path('api/', include(router.urls)),
+
+
     # token jwt
     path('token-auth/', obtain_jwt_token),
+
+
     # item
     # path('item/', include('item.urls')),
 
     # todo
-    # path('todo/', include('todo.urls')),
+    path('todo/', todo_views.todo_list, name='todo'),
 
     path('', item_views.home),
     
     # users
-    path('user/', include('user.urls')),
+    # path('user/', include('user.urls')),
 
     path('', include('django.contrib.auth.urls')),
 ]

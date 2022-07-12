@@ -5,9 +5,9 @@ from rest_framework import routers
 #users
 # from .views import current_user, UserList  
 
-router = routers.DefaultRouter()
-router.register(r'post', views.TodoView,'todo'),
-urlpatterns = router.urls
+# router = routers.DefaultRouter()
+# router.register(r'post', views.TodoView,'todo'),
+# urlpatterns = router.urls
 
 
 #users
@@ -18,6 +18,8 @@ urlpatterns = router.urls
 
 # test
 # urlpatterns = [  
-#     path('', views.todo_list),
-#     path('', include(router.urls)),
+#     path('', views.TodoView, name='todo'),
+    # path('', include(router.urls)),
 # ]
+
+
