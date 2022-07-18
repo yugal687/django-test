@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'cart',
     'user',
     'register',
-    'crispy_forms'
+    'crispy_forms',
 ]
 
 
@@ -100,6 +100,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line 
+        # 'NAME'    : 'mytestdb',                 # <-- UPDATED line 
+        # 'USER'    : 'test',                     # <-- UPDATED line
+        # 'PASSWORD': 'Secret_1234',              # <-- UPDATED line
+        # 'HOST'    : 'localhost',                # <-- UPDATED line
+        # 'PORT'    : '3306',
     }
 }
 

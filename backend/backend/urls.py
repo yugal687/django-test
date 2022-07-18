@@ -20,27 +20,24 @@ from django.urls import path, include
 from rest_framework import routers
 from todo import views as todo_views
 # from todo.views import todo_list
+
+# from todo.views import todo_list
 from item.views import ItemView, CategoryView, ItemCategoryView
 from user.views import UserView
 from register.views import RegisterView
 from cart.views import CartView
-# from django.conf.urls import url
-
+# from rest_framework.urlpatterns import format_suffix_patterns
 from register import views as register_views
 # from register import RegisterAPI
-
-
 # jwt
 from rest_framework_jwt.views import obtain_jwt_token
-
 from django.conf.urls.static import static
 from django.conf import settings
-
 from item import views as item_views
 
 
 router = routers.DefaultRouter()
-# router.register(r'todos', todo_views, 'todo')
+# router.register(r'todos', todo_list, 'todo')
 router.register(r'items', ItemView, 'item')
 router.register(r'carts', CartView, 'cart')
 router.register(r'item-categories', ItemCategoryView, 'item-category')
@@ -52,6 +49,7 @@ router.register(r'register', RegisterView, 'register')
 
 
 # router = routers.DefaultRouter()
+
 
 urlpatterns = [
     # admin
@@ -72,7 +70,7 @@ urlpatterns = [
     # path('item/', include('item.urls')),
 
     # todo
-    path('todo/', todo_views.todo_list, name='todo'),
+    path('', include('todo.urls')),
 
     path('', item_views.home),
     
@@ -81,5 +79,6 @@ urlpatterns = [
 
     path('', include('django.contrib.auth.urls')),
 ]
+
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

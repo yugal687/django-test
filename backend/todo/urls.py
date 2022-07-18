@@ -1,25 +1,12 @@
 from django.urls import path, include
 from . import views
-from rest_framework import routers
-
-#users
-# from .views import current_user, UserList  
-
-# router = routers.DefaultRouter()
-# router.register(r'post', views.TodoView,'todo'),
-# urlpatterns = router.urls
 
 
 #users
-# urlpatterns += [
-#     path('current_user/', current_user),
-#     path('users/', UserList.as_view())
-# ]
+urlpatterns = [
+    path('api/todos/', views.todo_list, name='todo'),
+]
 
-# test
-# urlpatterns = [  
-#     path('', views.TodoView, name='todo'),
-    # path('', include(router.urls)),
-# ]
+
 
 
